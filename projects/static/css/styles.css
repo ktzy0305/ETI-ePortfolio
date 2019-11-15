@@ -45,15 +45,24 @@ li.nav-item.active a.nav-link span{
     color: #000000;
 }
 
+#main-body{
+    padding-top: 20px;
+}
+
 #about{
     padding-left: 100px;
     padding-right: 100px;
     padding-top: 30px;
 }
 
+#personal-summary{
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
 .card{
     border-radius: 5px;
-    padding: 110px 80px 20px 80px;
+    padding: 110px 10px 30px 10px;
 }
 
 .card.div{
@@ -90,9 +99,17 @@ li.nav-item.active a.nav-link span{
     border-radius: 50%;
 }
 
+/* Skills Section */
 .skills-container{
     margin: auto;
     padding-top: 30px;
+}
+
+#skills-header{
+    text-align: center !important;
+    text-transform: uppercase !important;
+    font-size: 1.5em !important;
+    font-weight: 600 !important;
 }
 
 .bar{
@@ -136,6 +153,57 @@ div.bar.flex span{
     padding-right: 15px;
 }
 
+/* Second Group */
+
+div#second-group{
+    padding-top: 100px;
+}
+
+div#white-area{
+    background: #ffffff;
+
+}
+
+/* Education Section */
+
+#education-header{
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#education-content{
+    padding-top: 20px;
+}
+
+.edu-institution, .education-item{
+    padding-bottom: 20px;
+}
+
+/* Work Section */
+
+#work-section{
+    padding-top: 20px;
+}
+
+#work-header{
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#work-content{
+    padding-top: 20px;
+}
+
+.work-item{
+    padding-bottom: 20px;
+}
+
+/* Projects Section */
+
 #projects-showcase{
     padding-top: 10px;
     padding-bottom: 50px;
@@ -159,12 +227,22 @@ div.bar.flex span{
 .project-item{
     background: #ffffff;
     border-radius: 5px;
-    min-height: 360px;
+    min-height: 410px;
     margin: 32px 0px;
+    padding-top: 10px;
 }
 
 .project-item:hover{
-    background: #838383;
+    background: #979696;
+}
+
+.btn-container{
+    padding: 15px 100px;
+}
+
+.rm-btn{
+    display: block;
+    margin: 0 auto;
 }
 
 .owl-stage-outer{
@@ -178,19 +256,18 @@ div.project-item{
 
 .project-logo-holder{
     display: block;
-    margin-bottom: 20px;
+    margin: 0 auto;
     padding: 10px;
-    position: relative;
-    top: 40px;
+    /* position: relative;
     transition: all 0.6s ease;
     -webkit-transition: all 0.6s ease;
-    -moz-transition: all 0.6s ease;
+    -moz-transition: all 0.6s ease; */
 }
 
-div.project-item:hover .project-logo-holder {
+/* div.project-item:hover .project-logo-holder {
     top: -40px;
     margin-bottom: 0px;
-}
+} */
 
 .project-logo-holder img{
     background: #ffffff;
@@ -203,18 +280,14 @@ div.project-item:hover .project-logo-holder {
     font-size: 20px;
     font-weight: 600;
     letter-spacing: 1px;
-    position: relative;
-    top: 30px;
+    padding-top: 10px;
     text-align: center;
     text-transform: uppercase;
-    transition: all 0.6s ease;
-    -webkit-transition: all 0.6s ease;
-    -moz-transition: all 0.6s ease;
 }
 
-div.project-item:hover .project-name {
+/* div.project-item:hover .project-name {
     top: -30px;
-}
+} */
 
 .project-name a{
     color: #000000;
@@ -224,19 +297,20 @@ div.project-item:hover .project-name {
 .project-description{
     font-size: 18px;
     margin: auto;
-    opacity: 0;
+    /* opacity: 0; */
     text-align: center;
-    transform: scale(0);
+    /* transform: scale(0);
     transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    -moz-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    -moz-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55); */
     width: 80%;
 }
 
-div.project-item:hover p.project-description{
+/* div.project-item:hover p.project-description{
     opacity: 1;
     transform: scale(1);
-}
+} */
+
 
 #contact{
     padding-top: 50px;
@@ -357,10 +431,19 @@ div.project-item:hover p.project-description{
         border-bottom: none;
     }
 
+    #main-body{
+        padding-top: 70px;
+    }
+
     #about{
         padding-left: 20px;
         padding-right: 20px;
         padding-top: 40px;
+    }
+
+    #personal-summary{
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     .card{
@@ -409,6 +492,10 @@ div.project-item:hover p.project-description{
 
     #social-media-container{
         padding-top: 40px;
+    }
+
+    .btn-container{
+        padding: 15px 80px;
     }
 }
 

@@ -36,7 +36,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#about">Kevin Toh</a>
+            <a class="navbar-brand" href="">Kevin Toh</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,19 +44,52 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav ml-auto" id="nav-menu">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#about"><span>Home</span></a>
+                        <a class="nav-link" href="{% url 'home' %}"><span>Home</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects"><span>Blog</span></a>
+                        <a class="nav-link" href="{% url 'blog_index' %}"><span>Blog</span></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div id="main-body">
-        <div class="container wow fadeInUp">
-            {% block page_content %}
-            {% endblock %}
+        {% block page_content %}
+        {% endblock %}
+    </div>
+    <div id="contact">
+        <div id="contact-top">
+            <div class="container">
+                <header id="contact-header" class="wow fadeInUp">Contact</header>
+                <p id="contact-sub-text" class="wow fadeInUp" data-wow-delay="0.2s">Feel free to send me a message!</p>
+                <div class="col-md-12 col-sm-12 wow fadeInUp" id="contact-form" data-wow-delay="0.4s">
+                    <form action="https://formspree.io/kevintoh0305@gmail.com" method="POST">
+                        <div class="row" id="form-sender-row">
+                            <div class="col-md-6 col-sm-6 wow fadeInUp">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="email" class="form-control" id="email" name="_replyto" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="form-group" id="form-message-textarea">
+                            <textarea class="form-control" rows="9" id="message" placeholder="Message" minlength=5 required></textarea>
+                        </div>
+                        <div id="form-submit">
+                            <button type="submit" class="btn btn-primary btn-lg" id="form-submit-btn">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-12 col-sm-12" id="social-media-container">
+                    <ul class="social-media-icons">
+                        <li><a class="fab fa-facebook wow fadeInUp" href="https://www.facebook.com/oneandonlyktzy" target="_blank" data-wow-delay="0.6s"></a></li>
+                        <li><a class="fab fa-github wow fadeInUp" href="https://github.com/ktzy0305" target="_blank" data-wow-delay="0.8s"></a></li>
+                        <li><a class="fab fa-instagram wow fadeInUp" href="https://www.instagram.com/ktzy_0305/" target="_blank" data-wow-delay="1.0s"></a></li>
+                        <li><a class="fab fa-linkedin-in wow fadeInUp" href="https://www.linkedin.com/in/kevin-toh-047688141/" target="_blank" data-wow-delay="1.2s"></a></li>
+                    </ul>
+                </div>
+                <footer id="contact-footer" class="wow fadeInUp" data-wow-delay="1.4s">Copyright © 2019 Kevin Toh</footer>
+            </div>
         </div>
     </div>
 </body>

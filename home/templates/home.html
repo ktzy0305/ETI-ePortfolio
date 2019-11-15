@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<div id="first-group">
+    <div class="container wow fadeInUp" id="about">
+        <div class="profile-container">
+            <img src="{% static 'img/profile/kevin-toh.jpg' %}" id="profile_picture" class="image-circle">
+        </div>
+        <div class="card">
+            <div>
+                <header class="card-title">Kevin Toh</header>
+                <p class="card-text" id="personal-summary">
+                    Hi there! I am a final year diploma student in Ngee Ann Polytechnic studying Information
+                    Technology and based in Singapore. I've created various desktop, mobile and web applications.
+                    My goal is to become a certified software engineer and create wonderful solutions for our digital
+                    world.
+                </p>
+            </div>
+            <div class="skills-container">
+                <h3 id="skills-header">My Skills</h3>
+                <div class="bar flex">
+                    <div class="fill" style="width: 60%">
+                        <div class="tag flex">CSS</div>
+                    </div>
+                    <span>60%</span>
+                </div>
+                <div class="bar flex">
+                    <div class="fill" style="width: 70%">
+                        <div class="tag flex">HTML</div>
+                    </div>
+                    <span>70%</span>
+                </div>
+                <div class="bar flex">
+                    <div class="fill" style="width: 65%">
+                        <div class="tag flex">JavaScript</div>
+                    </div>
+                    <span>65%</span>
+                </div>
+                <div class="bar flex">
+                    <div class="fill" style="width: 70%">
+                        <div class="tag flex">C#</div>
+                    </div>
+                    <span>70%</span>
+                </div>
+                <div class="bar flex">
+                    <div class="fill" style="width: 75%">
+                        <div class="tag flex">Java</div>
+                    </div>
+                    <span>75%</span>
+                </div>
+                <div class="bar flex">
+                    <div class="fill" style="width: 80%">
+                        <div class="tag flex">Python</div>
+                    </div>
+                    <span>80%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="second-group" class="wow fadeInUp">
+    <div id="white-area">
+        <section id="education-section" class="wow fadeInUp">
+            <div class="container">
+                <header id="education-header">Education</header>
+                <div id="education-content">
+                    <div class="row education-item">
+                        <div class="col-sm-5">
+                            <div>
+                                <img class="img-fluid edu-institution"
+                                    src="{% static 'img/education/NP_Logo.png' %}">
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <h2>Ngee Ann Polytechnic</h2>
+                            <h4>2017 - Present</h4>
+                            <br>
+                            <h3>Diploma in Information Technology</h3>
+                            <h4>Cumulative GPA</h3>
+                                <p>3.9802</p>
+                                <br>
+                                <h3>Roles and CCA</h3>
+                                <ul>
+                                    <li>Microsoft Student Partners</li>
+                                    <li style="list-style-type:none">
+                                        <ul>
+                                            <li>Technical Lead (2018-2019)</li>
+                                        </ul>
+                                    </li>
+                                    <li>Swimming Club (2017-2018)</li>
+                                    <li style="list-style-type:none">
+                                        <ul>
+                                            <li>Member (2017-2018)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="row education-item">
+                        <div class="col-sm-5">
+                            <div>
+                                <img class="img-fluid edu-institution"
+                                    src="{% static 'img/education/BowenSecondarySchool.png' %}">
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <h2>Bowen Secondary School</h2>
+                            <h4>2013 - 2016</h4>
+                            <br>
+                            <h3>GCE 'O' Level</h3>
+                            <table>
+                                <tr>
+                                    <td>L1R5:</td>
+                                    <td>15</td>
+                                </tr>
+                                <tr>
+                                    <td>L1R4:</td>
+                                    <td>12</td>
+                                </tr>
+                            </table>
+                            <br>
+                            <h3>Roles and CCA</h3>
+                            <ul>
+                                <li>Student Council</li>
+                                <li style="list-style-type:none">
+                                    <ul>
+                                        <li>Vice Division Head (2015-2016)</li>
+                                    </ul>
+                                </li>
+                                <li>Boys' Brigade</li>
+                                <li style="list-style-type:none">
+                                    <ul>
+                                        <li>Company Sergeant Major (2015-2016)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="work-section" class="wow fadeInUp">
+            <div class="container">
+                <header id="work-header">Work Experience</header>
+                <div id="work-content">
+                    <div class="row work-item">
+                        <div class="col-sm-12">
+                            <h2>Intern, Centre for Strategic Infocomm Technologies</h2>
+                            <h3>March 2019 - August 2019</h3>
+                            <p>
+                                During my internship at CSIT, I worked on exploration project to build a meeting
+                                management software with collaborative features as well as performed research
+                                and development work in the domain of software and data engineering. In this
+                                project, I took on the responsibility of a backend web developer. My day to day
+                                responsibilities include gathering requirements, designing, developing and testing
+                                the backend web services built using the Spring Boot (Java) web framework. My major
+                                achievements during this internship are learning how to create and use a Natural
+                                Language Processing model, creating a real-time service at the backend using a
+                                message broker framework as well as integrating third party services such as
+                                Telegram into a backend system.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row work-item">
+                        <div class="col-sm-12">
+                            <h2>Software Developer, Ngee Ann Polytechnic</h2>
+                            <h3>September 2018 - October 2018</h3>
+                            <p>
+                                Working as an in-house software developer, I designed and developed a photo booth
+                                application called "IOTCameraBooth" for the School of InfoComm Technology’s Open
+                                House 2019. This application was for visitors to take photos with different filters
+                                and demonstrate a use case of IOT in which this application is connected to another
+                                web application which features a wall of photos that were taken from this
+                                application.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row work-item">
+                        <div class="col-sm-12">
+                            <h2>Customer Service Officer, DBS Bank</h2>
+                            <h3>January 2017 - Febuary 2017</h3>
+                            <p>
+                                During my work at DBS Bank, I had to manage queues along the ATM Machines that
+                                dispense new $2/$10/$50 denominations and customer queries on the self service
+                                banking machines. I was also given the responsibility of contacting the technician
+                                to repair the ATM machines should they malfunction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="third-group">
+    <div class="container wow fadeInUp">
+        <header id="projects-header" class="wow fadeInUp">Projects</header>
+        <p id="projects-sub-text" class="wow fadeInUp">Some of the projects that I have done.</p>
+        <div class="row">
+            <div id="projects-showcase" class="owl-carousel owl-theme">
+            {% for project in projects %}
+                <div class="item project-item wow fadeInUp">
+                    <div class="project-logo-holder" data-wow-delay="0.2s">
+                        <img src="{% static project.image %}" class="image-responsive image-circle">
+                    </div>
+                    <h4 class="project-name">{{ project.title }}</h4>
+                    <p class="project-description">{{ project.description }}</p>
+                    <div class="btn-container">
+                        <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary rm-btn">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
