@@ -1,9 +1,12 @@
 {% extends "base.html" %}
 {% block page_content %}
-<div class="col-md-8 offset-md-2">
-    <h1>{{ category | title }}</h1>
+<title>Kevin's Blog | Category: {{ category }}</title>
+
+<div class="col-md-8 offset-md-2" id="blog-category-container">
+    <h1>Blog posts with category "{{ category | title }}"</h1>
     <hr>
     {% for post in posts %}
+    <div class="blog-post wow fadeInUp">
         <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
         <small>
             {{ post.created_on.date }} |&nbsp;
@@ -15,6 +18,8 @@
             {% endfor %}
         </small>
         <p>{{ post.body | slice:":400" }}...</p>
+        <hr>
+    </div>
     {% endfor %}
 </div>
 {% endblock %}

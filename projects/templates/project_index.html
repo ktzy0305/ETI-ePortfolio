@@ -1,36 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
+<title>Kevin's Projects</title>
 <h1>Projects</h1>
-<div class="row">
-    <div id="projects-showcase" class="owl-carousel owl-theme">
-    {% for project in projects %}
-        <div class="item project-item wow fadeInUp">
-            <div class="project-logo-holder" data-wow-delay="0.2s">
-                <img src="{% static project.image %}" class="image-responsive image-circle">
-            </div>
-            <h4 class="project-name">{{ project.title }}</h4>
-            <p class="project-description">{{ project.description }}</p>
-            <div class="btn-container">
-                <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary rm-btn">Read More</a>
-            </div>
-        </div>
-        <!-- <div class="col-md-4">
-            <div class="card mb-2 item project-item wow fadeInUp">
+<div class="container">
+    <header id="projects-header" class="wow fadeInUp">Projects</header>
+    <p id="projects-sub-text" class="wow fadeInUp">Some of the projects that I have done.</p>
+    <div class="row">
+        <div id="projects-showcase" class="owl-carousel owl-theme">
+            {% for project in projects %}
+            <div class="item project-item wow fadeInUp">
                 <div class="project-logo-holder" data-wow-delay="0.2s">
-                    <img class="card-img-top image-responsive image-circle" src="{% static project.image %}">
+                    <img src="{% static project.image %}" class="image-responsive image-circle">
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ project.title }}</h5>
-                    <p class="card-text">{{ project.description }}</p>
-                    <a href="{% url 'project_detail' project.pk %}"
-                    class="btn btn-primary">
-                        Read More
-                    </a>
+                <h4 class="project-name">{{ project.title }}</h4>
+                <p class="project-description">{{ project.description }}</p>
+                <div class="btn-container">
+                    <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary rm-btn">Read More</a>
                 </div>
             </div>
-        </div> -->
-    {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
