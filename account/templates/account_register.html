@@ -4,6 +4,7 @@
 <title>Kevin's Blog | Account Registration</title>
 <div class="container" id="register-container">
     <div id="register-form">
+        <a href="{% url 'account_login' %}"><i class="fas fa-arrow-left"></i></a>
         <h4 id="register-form-title">Account Registration</h4>
         <form action="{% url 'account_register' %}" method="post">
             {% csrf_token %}

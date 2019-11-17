@@ -5,8 +5,9 @@
 
 <div class="container" id="login-container">
     <div id="login-form">
+        <a href="{% url 'blog_index' %}"><i class="fas fa-arrow-left"></i></a>
         <h4 id="login-form-title">Blog Login</h4>
-        <form action="{% url 'account_login' %}" method="post">
+        <form action="{% url 'account_login' %}?next={{ next_url|urlencode }}" method="post">
             {% csrf_token %}
             <div class="col-sm-8 offset-sm-2" id="login-form-box">
                 <div class="form-group">
@@ -27,10 +28,7 @@
         </form> 
         <ul class="col-sm-8 offset-sm-2" id="login-form-options">
             <li>
-                <a href="">Forgot your password?</a>
-            </li>
-            <li>
-                <a href="{% url 'account_register' %}">Don't have an account?</a>
+                <a href="{% url 'account_register' %}">Don't have an account? Click here to register.</a>
             </li>
         </ul>
     </div>

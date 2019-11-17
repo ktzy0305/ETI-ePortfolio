@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from account.forms import LoginForm, RegistrationForm
+from urllib.parse import urlparse
 
 # Create your views here.
 def account_login(request):
+    next_url = request.GET.get('next')
     form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -14,16 +16,23 @@ def account_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('/blog/')
+                redirect_url = request.GET.get('next')
+                if redirect_url=="None":
+                    return redirect('/blog/')
+                else:
+                    return redirect(request.GET.get('next'))
             else:
+                next_url = request.GET.get('next')
                 new_context = {
                     "form": form,
-                    "error" : "Incorrect Username or Password!"
+                    "error": "Incorrect Username or Password!",
+                    "next_url": next_url
                 }
                 return render(request, "account_login.html", new_context)
     else:
         context = {
-            "form": form
+            "form": form,
+            "next_url": next_url
         }
 
         return render(request, "account_login.html", context)
@@ -63,3 +72,7 @@ def account_register(request):
             "form": form
         }
         return render(request, "account_register.html", context)
+
+def account_logout(request):
+    logout(request)
+    return redirect('/blog/')

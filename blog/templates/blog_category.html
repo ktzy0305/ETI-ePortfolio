@@ -3,6 +3,11 @@
 <title>Kevin's Blog | Category: {{ category }}</title>
 
 <div class="col-md-8 offset-md-2" id="blog-category-container">
+    {% if request.user.is_authenticated %}
+    <div class="alert alert-success" role="alert">
+        Welcome <span class="blog-user-name">{{ request.user.get_username }}</span>!
+    </div>
+    {% endif %}
     <h1>Blog posts with category "{{ category | title }}"</h1>
     <hr>
     {% for post in posts %}

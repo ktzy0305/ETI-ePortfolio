@@ -484,6 +484,17 @@ ul#login-form-options{
     margin: auto;
 }
 
+a i.fa-arrow-left{
+    color: #000000;
+    padding-top: 20px;
+    padding-left: 30px;
+    font-size: 1.5em;
+}
+
+span.blog-user-name{
+    font-weight: bold;
+}
+
 @media only screen and (max-width: 991.9px){
     .bar{
         width: 60vw;

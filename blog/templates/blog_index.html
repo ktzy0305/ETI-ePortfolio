@@ -2,6 +2,11 @@
 {% block page_content %}
 <title>Kevin's Blog</title>
 <div class="col-md-8 offset-md-2" id="blog-index-container">
+    {% if request.user.is_authenticated %}
+    <div class="alert alert-success" role="alert">
+        Welcome <span class="blog-user-name">{{ request.user.get_username }}</span>!
+    </div>
+    {% endif %}
     <h1>Kevin's Blog</h1>
     <hr>
     {% for post in posts %}

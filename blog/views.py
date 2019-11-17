@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from blog.models import Comment, Post
 from blog.forms import CommentForm
 
@@ -29,7 +30,7 @@ def blog_detail(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = Comment(
-                author=form.cleaned_data["author"],
+                author= str(request.user.username),
                 body=form.cleaned_data["body"],
                 post=post
             )
