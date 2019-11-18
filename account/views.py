@@ -29,6 +29,14 @@ def account_login(request):
                     "next_url": next_url
                 }
                 return render(request, "account_login.html", new_context)
+        else:
+            next_url = request.GET.get('next')
+            new_context = {
+                "form": form,
+                "error": "Please fill up the empty fields!",
+                "next_url": next_url
+            }
+            return render(request, "account_login.html", new_context)
     else:
         context = {
             "form": form,

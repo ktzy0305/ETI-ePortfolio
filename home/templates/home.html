@@ -147,7 +147,7 @@
                             {% if project.description|length <= 28 %}
                             <p class="project-description">{{ project.description }}</p>
                             {% else %}
-                            <p class="project-description">{{ project.description | slice:":28" }}...</p>
+                            <p class="project-description">{{ project.description | slice:":45" }}...</p>
                             {% endif %}
                         <div class="btn-container">
                             <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary rm-btn">Read More</a>
