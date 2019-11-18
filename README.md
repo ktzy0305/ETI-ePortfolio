@@ -18,3 +18,15 @@ git clone https://github.com/ktzy0305/ETI-ePortfolio.git
 `
 python manage.py runserver
 `
+
+3. PyTest
+
+`
+pytest -v
+`
+
+4. Coverage
+
+`
+pytest --cov
+`
