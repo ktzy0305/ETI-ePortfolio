@@ -32,4 +32,4 @@ pytest --cov
 `
 
 ## Testing Report
-[Download Here](https://github.com/ktzy0305/ETI-ePortfolio/blob/raw/E-Portfolio%20Testing%20Report.docx)
+[Download Here](https://github.com/ktzy0305/ETI-ePortfolio/raw/E-Portfolio%20Testing%20Report.docx)
