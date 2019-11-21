@@ -46,16 +46,14 @@
                     <li class="nav-item {% if request.resolver_match.url_name == 'blog_index' %}active{% endif %}">
                         <a class="nav-link" href="{% url 'blog_index' %}"><span>Blog</span></a>
                     </li>
-                    {% if request.resolver_match.url_name == 'blog_index' or request.resolver_match.url_name == 'blog_category' or request.resolver_match.url_name == 'blog_detail' %}
-                        {% if not request.user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}?next={{ request.get_full_path|urlencode }}"><span>Login</span></a>
-                        </li>
-                        {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_logout' %}"><span>Log Out</span></a>
-                        </li>
-                        {% endif %}
+                    {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}?next={{ request.get_full_path|urlencode }}"><span>Login</span></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_logout' %}"><span>Log Out</span></a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>

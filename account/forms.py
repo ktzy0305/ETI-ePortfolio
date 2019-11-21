@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+import re
 
 class LoginForm(forms.Form):
     username = forms.CharField(
@@ -15,8 +16,8 @@ class LoginForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 "class": "form-control",
-                "type": "password",
-                "placeholder": "Password"
+                "placeholder": "Password",
+                "type": "password"
             }
         )
     )
@@ -26,7 +27,8 @@ class RegistrationForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "placeholder": "Email"
+                "placeholder": "Email",
+                "type": "email"
             }
         )
     )
@@ -64,6 +66,12 @@ class RegistrationForm(forms.Form):
 
     def check_username_exists(self, username):
         return User.objects.filter(username=username).exists()
+
+    def is_password_strong(self, password):
+        if re.match(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", password):
+            return True
+        else:
+            return False 
 
     def password_match(self, password, confirm_password):
         if password == confirm_password:

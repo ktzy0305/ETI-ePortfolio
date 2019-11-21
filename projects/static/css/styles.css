@@ -49,10 +49,13 @@ li.nav-item.active a.nav-link span{
     padding-top: 20px;
 }
 
+#home-alert-container{
+    padding-top: 80px;
+}
+
 #about{
     padding-left: 100px;
     padding-right: 100px;
-    padding-top: 30px;
 }
 
 #personal-summary{

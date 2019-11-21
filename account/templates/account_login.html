@@ -5,7 +5,11 @@
 
 <div class="container" id="login-container">
     <div id="login-form">
+        {% if next_url is not None %}
+        <a href="{{ next_url|urlencode }}"><i class="fas fa-arrow-left"></i></a>
+        {% else %}
         <a href="{% url 'blog_index' %}"><i class="fas fa-arrow-left"></i></a>
+        {% endif %}
         <h4 id="login-form-title">Blog Login</h4>
         <form action="{% url 'account_login' %}?next={{ next_url|urlencode }}" method="post">
             {% csrf_token %}

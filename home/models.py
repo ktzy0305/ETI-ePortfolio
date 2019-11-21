@@ -15,6 +15,6 @@ class WorkExperience(models.Model):
 
 class ContactMessage(models.Model):
     sender_name = models.CharField(max_length=50)
-    sender_email = models.EmailField(max_length=70, blank=True, null= True, unique= True)
+    sender_email = models.EmailField(max_length=70)
     message = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

@@ -6,6 +6,8 @@ from blog.forms import CommentForm
 # Create your views here.
 def blog_index(request):
     posts = Post.objects.all().order_by('-created_on')
+    # if request.method == 'POST':
+        # posts = Post.objects.filter(title__trigram__similar="", body__trigram__similar="")
     context = {
         "posts": posts,
     }

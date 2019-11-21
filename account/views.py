@@ -61,6 +61,8 @@ def account_register(request):
                 new_context["username_error"] = "An account with this username already exists."
             if not form.password_match(password, confirm_password):
                 new_context["password_error"] = "Passwords do not match."
+            if not form.is_password_strong(password):
+                new_context["password_error"] = "Password must be at least 8 characters long and consist of alphabets and numbers."
             if(len(new_context)>0):
                 new_context["form"] = form
                 new_context["error"] = "Please correct the errors in the registration form."
