@@ -14,7 +14,9 @@ def test_login_no_input():
     password_elem.clear()
 
     login_btn_elem.click()
-    return
+
+    assert driver.title == "Kevin's Blog | Login"
+
 
 def test_login_wrong_password():
     driver = webdriver.Chrome()
@@ -36,6 +38,7 @@ def test_login_wrong_password():
 
     error_elem = driver.find_element_by_xpath('//*[@id="login-form"]/form/p')
     assert error_elem.text == "Incorrect Username or Password!"
+
 
 def test_login_unregistered_user():
     driver = webdriver.Chrome()
@@ -85,6 +88,7 @@ def test_login_correct_credentials():
     welcome_username_span_elem = driver.find_element_by_xpath('//*[@id="home-alert-container"]/div/span')
     assert welcome_username_span_elem.text == "David3k"
 
+
 def test_login_form_click_back():
     driver = webdriver.Chrome()
     driver.get("http://127.0.0.1:8000/blog/")
@@ -101,6 +105,7 @@ def test_login_form_click_back():
 
     assert driver.title == "Kevin's Blog"
 
+
 def test_login_form_click_register():
     driver = webdriver.Chrome()
     driver.get("http://127.0.0.1:8000/account/login?next=/")
@@ -111,5 +116,3 @@ def test_login_form_click_register():
     time.sleep(5)
 
     assert driver.title == "Kevin's Blog | Account Registration"
-
-    return

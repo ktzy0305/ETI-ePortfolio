@@ -11,7 +11,7 @@
     <h1>Blog posts with category "{{ category | title }}"</h1>
     <hr>
     {% for post in posts %}
-    <div class="blog-post wow fadeInUp">
+    <div class="blog-post">
         <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
         <small>
             {{ post.created_on.date }} |&nbsp;

@@ -24,9 +24,11 @@ class LoginForm(forms.Form):
 
 class RegistrationForm(forms.Form):
     email = forms.EmailField(
+        max_length=100,
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
+                "name" : "email",
                 "placeholder": "Email",
                 "type": "email"
             }
@@ -38,6 +40,7 @@ class RegistrationForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
+                "name" : "username",
                 "placeholder": "Username"
             }
         ) 
@@ -46,6 +49,7 @@ class RegistrationForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 "class": "form-control",
+                "name" : "password",
                 "type": "password",
                 "placeholder": "Password"
             }
@@ -55,6 +59,7 @@ class RegistrationForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 "class": "form-control",
+                "name" : "confirm_password",
                 "type": "password",
                 "placeholder": "Confirm Password"
             }
@@ -67,8 +72,14 @@ class RegistrationForm(forms.Form):
     def check_username_exists(self, username):
         return User.objects.filter(username=username).exists()
 
+    def is_email_valid(self, email):
+        if re.match(r"[^@]+@[^@]+\.[^@]+", email):
+            return True
+        else:
+            return False
+
     def is_password_strong(self, password):
-        if re.match(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$", password):
+        if re.match(r"[A-Za-z0-9@#$%^&+=]{8,}", password):
             return True
         else:
             return False 
