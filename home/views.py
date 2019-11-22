@@ -47,9 +47,9 @@ def home(request):
                 contactMessage.save()
         else:
             print("Form Invalid")
-            name = request.POST.get["name"]
-            email = request.POST.get["email"]
-            message = request.POST.get["message"]
+            name = request.POST.get("name")
+            email = request.POST.get("email")
+            message = request.POST.get("message")
             if name == None:
                 context["name_error"] = "Name cannot be empty!"
             if len(name) > 50:

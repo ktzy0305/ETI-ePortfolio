@@ -28,20 +28,34 @@ def blog_category(request, category):
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)
     form = CommentForm()
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = Comment(
-                author= str(request.user.username),
-                body=form.cleaned_data["body"],
-                post=post
-            )
-            comment.save()
     comments = Comment.objects.filter(post=post)
     context = {
         "post": post,
         "comments": comments,
         "form": form,
     }
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            if len(form.cleaned_data["body"]) > 2000:
+                context["comment_body_error"] = "Comment cannot exceed 2000 characters."
+            else:
+                comment = Comment(
+                    author= str(request.user.username),
+                    body=form.cleaned_data["body"],
+                    post=post
+                )
+                comment.save()
+        else:
+            print("Invalid")
+            comment_body = request.POST.get("body")
+            print(comment_body)
+            if comment_body is None:
+                context["comment_body_error"] = "Comment cannot be empty."
+            else:
+                if len(comment_body) == 0:
+                    context["comment_body_error"] = "Comment cannot be empty."
+                if len(comment_body) > 2000:
+                    context["comment_body_error"] = "Comment cannot exceed 2000 characters."
 
     return render(request, "blog_detail.html", context)

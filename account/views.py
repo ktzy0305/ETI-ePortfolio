@@ -81,21 +81,21 @@ def account_register(request):
             confirm_password = request.POST.get("confirm_password")
             if email is None:
                 new_context["email_error"] = "Email cannot be empty."
-            if len(email) > 100:
+            elif len(email) > 100:
                 new_context["email_error"] = "Email cannot be more than 100 characters long."
-            if not form.is_email_valid(email):
+            elif not form.is_email_valid(email):
                 new_context["email_error"] = "Email has invalid format."
             if username is None:
                 new_context["username_error"] = "Username cannot be empty."
-            if len(username) > 30:
+            elif len(username) > 30:
                 new_context["username_error"] = "Username cannot be more than 30 characters long."
             if password is None:
                 new_context["password_error"] = "Password cannot be empty."
-            if len(password) > 128:
+            elif len(password) > 128:
                 new_context["password_error"] = "Password cannot be more than 128 characters long."
             if confirm_password is None:
                 new_context["confirm_password_error"] = "Confirm Password cannot be empty."
-            if len(confirm_password) > 128:
+            elif len(confirm_password) > 128:
                 new_context["confirm_password_error"] = "Confirm Password cannot be more than 128 characters long."
             return render(request, "account_register.html", new_context)
     else:

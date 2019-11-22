@@ -26,6 +26,10 @@
             {% csrf_token %}
             <div class="form-group">
                 {{ form.body }}
+                {% if comment_body_error is not None %}
+                <br>
+                <span class="form-error">{{ comment_body_error }}</span>
+                {% endif %}
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

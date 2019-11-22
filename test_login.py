@@ -10,6 +10,9 @@ def test_login_no_input():
     password_elem = driver.find_element_by_xpath('//*[@id="id_password"]')
     login_btn_elem = driver.find_element_by_xpath('//*[@id="login-form-btn"]')
 
+    driver.execute_script("arguments[0].removeAttribute('required')", username_elem)
+    driver.execute_script("arguments[0].removeAttribute('required')", password_elem)
+
     username_elem.clear()
     password_elem.clear()
 

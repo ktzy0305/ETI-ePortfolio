@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from django.contrib.auth.models import User
 import time
 
 def test_registration_no_input():
@@ -11,6 +12,12 @@ def test_registration_no_input():
     password_input_elem = driver.find_element_by_xpath('//*[@id="id_password"]')
     confirm_password_input_elem = driver.find_element_by_xpath('//*[@id="id_confirm_password"]')
     register_btn_elem = driver.find_element_by_xpath('//*[@id="register-form-btn"]')
+
+    driver.execute_script("arguments[0].removeAttribute('required')", email_input_elem)
+    driver.execute_script("arguments[0].removeAttribute('required')", username_input_elem)
+    driver.execute_script("arguments[0].removeAttribute('required')", password_input_elem)
+    driver.execute_script("arguments[0].removeAttribute('required')", confirm_password_input_elem)
+
     email_input_elem.clear()
     username_input_elem.clear()
     password_input_elem.clear()
@@ -30,6 +37,7 @@ def test_registration_invalid_email():
     register_btn_elem = driver.find_element_by_xpath('//*[@id="register-form-btn"]')
 
     # Change type attribute of email element to text
+    driver.execute_script("arguments[0].setAttribute('type', 'text')", email_input_elem)
 
     email_input_elem.clear()
     username_input_elem.clear()
@@ -44,7 +52,7 @@ def test_registration_invalid_email():
     register_btn_elem.click()
 
     email_error_elem = driver.find_element_by_xpath('//*[@id="register-form-box"]/div[1]/span')
-    assert email_error_elem.text == "Invalid email format!"
+    assert email_error_elem.text == "Email has invalid format."
 
 
 def test_registration_existing_email():
@@ -127,7 +135,7 @@ def test_registration_password_less_than_8_characters():
     password_error_elem = driver.find_element_by_xpath('//*[@id="register-form-box"]/div[3]/span')
     assert password_error_elem.text == "Password must be at least 8 characters long."
 
-
+@pytest.mark.django_db
 def test_registration_password_and_confirm_password_different():
     driver = webdriver.Chrome()
     driver.get("http://127.0.0.1:8000/account/register")
@@ -154,9 +162,13 @@ def test_registration_password_and_confirm_password_different():
     password_error_elem = driver.find_element_by_xpath('//*[@id="register-form-box"]/div[3]/span')
     assert password_error_elem.text == "Password and Confirm Password do not match."
 
-
+@pytest.mark.django_db
 def test_registration_valid_input():
-    # Delete user if exists in database
+    # Delete user if exists in database 
+    # test_user = User.objects.get(username='Jack20')
+    # if test_user is not None:
+    #     test_user.delete()
+
 
     driver = webdriver.Chrome()
     driver.get("http://127.0.0.1:8000/account/register")
