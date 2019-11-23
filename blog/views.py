@@ -28,7 +28,7 @@ def blog_category(request, category):
 def blog_detail(request, pk):
     post = Post.objects.get(pk=pk)
     form = CommentForm()
-    comments = Comment.objects.filter(post=post)
+    comments = Comment.objects.filter(post=post).order_by('-created_on')
     context = {
         "post": post,
         "comments": comments,

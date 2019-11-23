@@ -11,6 +11,27 @@
             </div>
             {% endif %}
         </div>
+        <!-- Modal -->
+        <div class="modal fade" id="form-submit-pop-up-success" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="form-submit-ModalLongTitle">Success</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your contact message was successfully sent.</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if form_submit_success %}
+        <script>
+            $('#form-submit-pop-up-success').modal('show');
+        </script>
+        {% endif %}
         <div class="container" id="about">
             <div class="profile-container">
                 <img src="{% static 'img/profile/kevin-toh.jpg' %}" id="profile_picture" class="image-circle">
@@ -190,8 +211,8 @@
                     </div>
                     <div class="form-group" id="form-message-textarea">
                         {{ contact_form.message }}
-                        {% if email_error is not None %}
-                        <p class="form-error">{{ email_error }}</p>
+                        {% if message_error is not None %}
+                        <p class="form-error">{{ message_error }}</p>
                         {% endif %}
                     </div>
                     <div id="form-submit">

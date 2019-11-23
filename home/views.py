@@ -13,6 +13,7 @@ def home(request):
     contactForm = ContactForm()
     context = {
         'contact_form' : contactForm,
+        'form_submit_success' : False,
         'projects': projects,
         'skills': skills,
         'work_experiences': work_experiences
@@ -28,40 +29,45 @@ def home(request):
             except TypeError:
                 context["email_error"] = "Invalid email format!"
             message = contactForm.cleaned_data["message"]
-            if name == None:
+            if name is None:
                 context["name_error"] = "Name cannot be empty!"
-            if len(name) > 50:
+            elif len(name) > 50:
                 context["name_error"] = "Name cannot be longer than 50 characters!"
-            if email == None:
+            if email is None:
                 context["email_error"] = "Email cannot be empty!"
-            if len(email) > 70:
+            elif len(email) > 70:
                 context["email_error"] = "Email cannot be longer than 70 characters!" 
-            if not re.match(r'', email):
+            elif not re.match(r'', email):
                 context["email_error"] = "Invalid email format!"
-            if message == None:
+            if message is None:
                 context["message_error"] = "Message cannot be empty!"
-            if len(message) > 2000: 
+            elif len(message) > 2000: 
                 context["message_error"] = "Message cannot be longer than 2000 characters!"
-            if len(context) <= 4:
+            if len(context) <= 5:
+                context["form_submit_success"] = True
                 contactMessage = ContactMessage(sender_name = name, sender_email = email, message = message)
                 contactMessage.save()
+
         else:
             print("Form Invalid")
             name = request.POST.get("name")
             email = request.POST.get("email")
             message = request.POST.get("message")
-            if name == None:
+            print(name)
+            print(email)
+            print(message)
+            if name == "":
                 context["name_error"] = "Name cannot be empty!"
-            if len(name) > 50:
+            elif len(name) > 50:
                 context["name_error"] = "Name cannot be longer than 50 characters!"
-            if email == None:
-                context["email_error"] = "Email cannot be none!"
-            if len(email) > 70:
+            if email == "":
+                context["email_error"] = "Email cannot be empty!"
+            elif len(email) > 70:
                 context["email_error"] = "Email cannot be longer than 70 characters!" 
-            if not re.match(r'', email):
+            elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
                 context["email_error"] = "Invalid email format!"
-            if message == None:
+            if message == "":
                 context["message_error"] = "Message cannot be empty!"
-            if len(message) > 2000: 
+            elif len(message) > 2000: 
                 context["message_error"] = "Message cannot be longer than 2000 characters!"
     return render(request, 'home.html', context)

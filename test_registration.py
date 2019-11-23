@@ -164,7 +164,8 @@ def test_registration_password_and_confirm_password_different():
 
 @pytest.mark.django_db
 def test_registration_valid_input():
-    # Delete user if exists in database 
+    # Note: Pytest uses a seperate database that has no records from production application 
+    # Delete user if exists in database
     # test_user = User.objects.get(username='Jack20')
     # if test_user is not None:
     #     test_user.delete()
@@ -191,6 +192,10 @@ def test_registration_valid_input():
     register_btn_elem.click()
 
     time.sleep(2)
+
+    # Assert that latest registered user is the same user that was registered
+    # latest_registered_user = User.objects.latest()
+    # assert latest_registered_user.get_username() == "Jack20"
 
     assert driver.title == "Kevin's Blog | Login"
 

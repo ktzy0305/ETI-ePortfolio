@@ -98,8 +98,15 @@ def test_blog_details_comment_valid_input():
 
     time.sleep(2)
 
-    latest_comment = Comment.objects.latest("created_on")
-    assert latest_comment.body == "This project looks good."
+    # If pytest-django did not create a seperate database for unit testing:
+    #
+    # latest_comment = Comment.objects.latest("created_on")
+    # assert latest_comment.body == "This project looks good.
+
+    # Find the body element of the latest comment and assert the values.
+    latest_comment_body_elem = driver.find_element_by_xpath('//*[@id="blog-detail-container"]/div[2]/p[5]')
+    assert latest_comment_body_elem.text == "This project looks good."
+    
 
 def test_blog_details_comment_input_more_than_2000_characters():
     driver = webdriver.Chrome()
