@@ -1,6 +1,8 @@
 # ETI e-Portfolio
 An ePortfolio web application made using Django for Emerging Trends in IT. Test cases for this web application are written using PyTest, with Selenium for UI testing. A project testing report which contains the list of test cases and its respective results and justification of test results is included below.
 
+> Hi Mr Low, if you are seeing this, please scroll down and download the Testing Report document, it contains all the test cases, test results and the justification of test results. Thank you! 😊
+
 ## Requirements
 - Django
 - PyTest (with Coverage)
