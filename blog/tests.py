@@ -1,5 +1,7 @@
-from django.test import TestCase
+from django.test import Client, TestCase
+from django.urls import reverse
 from blog.models import Category, Comment, Post
+import datetime
 
 # Create your tests here.
 
@@ -18,3 +20,8 @@ class BlogTest(TestCase):
         new_comment.save()
         latest_comment = Comment.objects.latest("created_on")
         assert new_comment.body == latest_comment.body
+    
+    def test_blog_index_load(self):
+        client = Client()
+        response = client.get(reverse('blog_index'))
+        assert response.status_code == 200
